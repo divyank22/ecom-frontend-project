@@ -13,14 +13,20 @@ const truncateDescription = (text, length = 100) => {
     }
     return text.slice(0, length) + '...';
 };
+const truncatetitle= (text, length = 12) => {
+    if (text.length <= length) {
+        return text;
+    }
+    return text.slice(0, length) + '...';
+};
 </script>
 
 <template>
     <div class="p-2">  
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
-            <img class="w-full" :src="image" :alt="title">
+            <img class="w-full h-72" :src="image" :alt="title">
             <div class="px-6 py-4">
-                <div class="font-bold text-xl mb-2">{{ title }}</div>
+                <div class="font-bold text-xl mb-2">{{ truncatetitle(title) }}</div>
                 <p class="text-gray-700 text-base">
                     {{ truncateDescription(description) }}
                 </p>
